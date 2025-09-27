@@ -523,6 +523,38 @@
             color: var(--accent-text);
         }
 
+        /* --- Scroll to Top Button --- */
+        .scroll-to-top {
+            display: block;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999; /* Below the sidebar overlay */
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            background: var(--accent-hover);
+            transform: scale(1.1);
+        }
+
         /* --- Mobile Responsive Styles --- */
         /* The hamburger menu button for mobile */
         .mobile-menu-btn {
@@ -539,6 +571,12 @@
             border-radius: 8px;
             font-size: 1.2rem;
             cursor: pointer;
+        }
+        
+        /* Specific override for light mode to match theme toggle */
+        [data-theme="light"] .scroll-to-top {
+            background: #575859;
+            color: #ffffff;
         }
 
         /* Styles for screens 768px wide or smaller */
@@ -588,6 +626,7 @@
             .project-toc {
                 position: static; /* Un-stick the TOC */
                 width: 100%;
+                order: -1; /* Moves the TOC to the top in the flex column */
                 margin-bottom: 2rem;
             }
         }

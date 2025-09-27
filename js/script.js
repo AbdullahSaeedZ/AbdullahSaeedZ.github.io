@@ -139,6 +139,43 @@
                 });
             }
 
+            // --- Scroll to Top Button with Inactivity Timeout ---
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            let inactivityTimer; // To hold the timer
+
+            // This function shows the button (if scrolled down) and resets the inactivity timer
+            const handleUserActivity = () => {
+                // Clear any existing timer to prevent premature hiding
+                clearTimeout(inactivityTimer);
+
+                if (window.scrollY > 300) {
+                    // If scrolled down, make the button visible
+                    scrollToTopBtn.classList.add('visible');
+
+                    // Set a new timer to hide the button after 2 seconds of inactivity
+                    inactivityTimer = setTimeout(() => {
+                        scrollToTopBtn.classList.remove('visible');
+                    }, 2000);
+                } else {
+                    // If near the top, keep the button hidden
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            };
+
+            // Listen for any user activity
+            window.addEventListener('scroll', handleUserActivity);
+            window.addEventListener('mousemove', handleUserActivity);
+            window.addEventListener('touchstart', handleUserActivity);
+
+            // Handle the click event to scroll to the top
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+
             // --- Handle URL Hash Changes and Initial Load ---
 
             // Function to show page based on the current URL hash

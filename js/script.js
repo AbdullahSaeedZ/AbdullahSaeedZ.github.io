@@ -77,48 +77,41 @@
                 closeSidebar(); // Close sidebar after selection
             };
 
-            // --- Event Listeners ---
-
-            // For sidebar navigation links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href'); // Keep the '#'
-                    window.location.hash = pageId;
-                });
-            });
-
-            // For project cards
-            document.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const pageId = this.dataset.page; // e.g., "project-1"
-                    window.location.hash = pageId; // Set the hash to trigger navigation
-                });
-            });
-
-            // For breadcrumb links on project detail pages
-            // Note: We use event delegation on the document to handle links added in the future.
+            // --- Unified Global Click Handler ---
+            // This single event listener manages all clicks for SPA navigation,
+            // project cards, and smooth scrolling, while correctly ignoring
+            // external links (http), mailto links, and download links.
             document.addEventListener('click', function(e) {
-                if (e.target.matches('.breadcrumb-link')) {
-                    e.preventDefault();
-                    window.location.hash = e.target.getAttribute('href');
-                }
-            });
+                const link = e.target.closest('a');
+                const card = e.target.closest('.project-card');
 
-            // For Table of Contents links to scroll smoothly
-            document.querySelectorAll('.project-toc a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Prevent the default anchor behavior AND stop our router from firing
-                    e.preventDefault(); 
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-
-                    if (targetElement) {
-                        // Smoothly scroll the target heading into view
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Handle project card clicks
+                if (card) {
+                    const pageId = card.dataset.page;
+                    if (pageId) {
+                        window.location.hash = pageId;
                     }
-                });
+                    return; // Done
+                }
+
+                // Handle all `<a>` tag clicks
+                if (link) {
+                    const href = link.getAttribute('href');
+
+                    // If it's an internal SPA link (starts with '#')
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault(); // Prevent default jump
+                        
+                        // If it's a Table of Contents link, scroll smoothly
+                        if (link.closest('.project-toc')) {
+                            document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            // Otherwise, it's a main navigation link, so change the page
+                            window.location.hash = href;
+                        }
+                    }
+                    // For all other links (mailto:, https://, download), do nothing and let the browser handle it.
+                }
             });
 
             // --- Handle URL Hash Changes and Initial Load ---

@@ -1,4 +1,580 @@
----
-layout: home
-# Index page
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page setup and metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah's Portfolio</title>
+    <!-- External stylesheets for icons and custom styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="dark">
+    <!-- Button to toggle the sidebar on mobile devices -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar: Contains profile, navigation, and theme toggle -->
+    <div class="sidebar" id="sidebar">
+        <!-- Profile section with picture and name -->
+        <div class="profile">
+            <div class="profile-img-wrapper">
+                <img class="profile-img" src="https://i.imgur.com/your-image-code.jpg" alt="Profile Picture">
+            </div>
+            <h1>Abdullah Alzahrani</h1>
+            <p>Junior C++ Developer</p>
+        </div>
+
+        <!-- Navigation menu -->
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#projects" class="nav-link">
+                    <i class="fas fa-terminal"></i>
+                    <span>C++ Console Projects</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Theme toggle button (light/dark mode) -->
+        <button class="theme-toggle" id="theme-toggle-btn">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+    </div>
+
+    <!-- Main Content: The primary content area of the page -->
+    <div class="main-content">
+        <!-- Home Page section -->
+        <div class="page active" id="home">
+            <div class="hero">
+                <h1>Welcome to My Portfolio</h1>
+                <p>Hello! I'm Abdullah Alzahrani, a passionate C++ developer based in Dammam, Saudi Arabia. I specialize in creating efficient and innovative solutions, with a focus on console applications and system programming. Currently pursuing my Computer Science degree while actively developing my programming skills.</p>
+                <div class="hero-actions">
+                    <a href="mailto:your.email@example.com" class="action-btn primary">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Me</span>
+                    </a>
+                    <a href="path/to/your_cv.pdf" download class="action-btn secondary">
+                        <i class="fas fa-download"></i>
+                        <span>Download CV</span>
+                    </a>
+                    <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" class="action-btn secondary">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" class="action-btn secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="action-btn secondary">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Skills/Toolbox Section -->
+            <div class="skills-section">
+                <h2 class="section-title">Tools & Technologies</h2>
+                <div class="skills-grid">
+                    <!-- C++ -->
+                    <div class="skill-item">
+                        <i class="devicon-cplusplus-plain"></i>
+                        <span>C++</span>
+                    </div>
+                    <!-- C# -->
+                    <div class="skill-item">
+                        <i class="devicon-csharp-plain"></i>
+                        <span>C#</span>
+                    </div>
+                    <!-- Java -->
+                    <div class="skill-item">
+                        <i class="devicon-java-plain"></i>
+                        <span>Java</span>
+                    </div>
+                    <!-- Visual Studio -->
+                    <div class="skill-item">
+                        <i class="devicon-visualstudio-plain"></i>
+                        <span>Visual Studio</span>
+                    </div>
+                    <!-- Git -->
+                    <div class="skill-item">
+                        <i class="devicon-git-plain"></i>
+                        <span>Git</span>
+                    </div>
+                    <!-- GitHub -->
+                    <div class="skill-item">
+                        <i class="devicon-github-original"></i>
+                        <span>GitHub</span>
+                    </div>
+                    <!-- SQL Database -->
+                    <div class="skill-item">
+                        <i class="devicon-microsoftsqlserver-plain"></i>
+                        <span>SQL Database</span>
+                    </div>
+                    <!-- AI / ML -->
+                    <div class="skill-item">
+                        <i class="fas fa-brain"></i>
+                        <span>AI / ML</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        <!-- Projects Page -->
+        <div class="page" id="projects">
+            <h2 class="section-title">C++ Console Projects</h2>
+            <p class="section-subtitle">Projects are listed from newest (at top) to oldest (at bottom). Content is subject to updates.</p>
+            <div class="projects-grid">
+                <!--
+                    TEMPLATE FOR NEW CONSOLE PROJECTS:
+                    To add a new project and have it appear at the top of this list:
+                    1. Copy this block, uncomment it, and place it at the top of the grid.
+                    2. Update the data-page, title, description, and tags.
+                    3. Give it the next number in the sequence (e.g., if the highest is 5th, make this one 6th).
+                -->
+                <!--
+                <div class="project-card" data-page="project-new">
+                    <h3 class="project-title">Newest Project Title</h3>
+                    <p class="project-description">A short description of your newest project.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Tag</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">6th</span>
+                    </div>
+                </div>
+                -->
+                <!-- Console Project Card 5 -->
+                <div class="project-card" data-page="project-5">
+                    <h3 class="project-title">Project Five</h3>
+                    <p class="project-description">The final console project in this list.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Game</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">5th</span>
+                    </div>
+                </div>
+                <!-- Console Project Card 4 -->
+                <div class="project-card" data-page="project-4">
+                    <h3 class="project-title">Project Four</h3>
+                    <p class="project-description">Another brief description for a console project.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Console</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">4th</span>
+                    </div>
+                </div>
+                <!-- Console Project Card 3 -->
+                <div class="project-card" data-page="project-3">
+                    <h3 class="project-title">Project Three</h3>
+                    <p class="project-description">A brief description of the third project goes here.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C#</span><span class="tag">SQL</span><span class="tag tag-fp">FP</span></div>
+                        <span class="project-card-number">3rd</span>
+                    </div>
+                </div>
+                <!-- Console Project Card 2 -->
+                <div class="project-card" data-page="project-2">
+                    <h3 class="project-title">Project Two</h3>
+                    <p class="project-description">A brief description of the second project goes here.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">Java</span><span class="tag">Desktop</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">2nd</span>
+                    </div>
+                </div>
+                <!-- Console Project Card 1 -->
+                <div class="project-card" data-page="project-1">
+                    <h3 class="project-title">Project One</h3>
+                    <p class="project-description">A brief description of the first project goes here.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Console</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">1st</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider between project sections -->
+            <div class="section-divider"></div>
+
+            <!-- New Utility Classes Section -->
+            <h2 class="section-title">Utility Classes & Libraries</h2>
+            <p class="section-subtitle">Projects are listed from newest (at top) to oldest (at bottom). Content is subject to updates.</p>
+            <div class="projects-grid">
+                <!-- Utility Project Card 5 -->
+                <div class="project-card" data-page="util-5">
+                    <h3 class="project-title">File I/O Wrapper</h3>
+                    <p class="project-description">A simple wrapper for easier file reading and writing operations.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Utility</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">5th</span>
+                    </div>
+                </div>
+                <!-- Utility Project Card 4 -->
+                <div class="project-card" data-page="util-4">
+                    <h3 class="project-title">Math Vector Library</h3>
+                    <p class="project-description">A library for 2D and 3D vector mathematics.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Math</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">4th</span>
+                    </div>
+                </div>
+                <!-- Utility Project Card 3 -->
+                <div class="project-card" data-page="util-3">
+                    <h3 class="project-title">Console UI Toolkit</h3>
+                    <p class="project-description">A simple toolkit for building more complex user interfaces in the console.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Console</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">3rd</span>
+                    </div>
+                </div>
+                <!-- Utility Project Card 2 -->
+                <div class="project-card" data-page="util-2">
+                    <h3 class="project-title">String Helper Class</h3>
+                    <p class="project-description">A header-only library for advanced string manipulation and parsing.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Header-only</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">2nd</span>
+                    </div>
+                </div>
+                <!-- Utility Project Card 1 -->
+                <div class="project-card" data-page="util-1">
+                    <h3 class="project-title">Data Structures Library</h3>
+                    <p class="project-description">A collection of custom data structures like dynamic arrays and linked lists.</p>
+                    <div class="project-card-footer">
+                        <div class="project-tags"><span class="tag">C++</span><span class="tag">Library</span><span class="tag tag-oop">OOP</span></div>
+                        <span class="project-card-number">1st</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Console Project Card 1 ("Project One") Detail Page -->
+        <div class="page" id="project-1">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">Project One</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>Project One</h1>
+                    <p>This is the detailed page for Project One. Below is a comprehensive breakdown of its features, the technology stack used, and the challenges encountered during development.</p>
+
+                    <h2 id="p1-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+                    <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</p>
+
+                    <h2 id="p1-features">2. Core Features</h2>
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus.</p>
+                    <p>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales.</p>
+                    <p>Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum.</p>
+
+                    <h2 id="p1-tech-stack">3. Technology Stack</h2>
+                    <p>Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</p>
+                    <p>Nam liber te conscient to factor tum poen legum odioque civiuda. Et tam neque pecun modut est neque nonor et imper ned libidig met, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+
+                    <h2 id="p1-challenges">4. Challenges and Solutions</h2>
+                    <p>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.</p>
+                    <p>Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+
+                    <h2 id="p1-conclusion">5. Conclusion & Learnings</h2>
+                    <p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.</p>
+                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#p1-introduction">Introduction</a></li>
+                        <li><a href="#p1-features">Core Features</a></li>
+                        <li><a href="#p1-tech-stack">Technology Stack</a></li>
+                        <li><a href="#p1-challenges">Challenges and Solutions</a></li>
+                        <li><a href="#p1-conclusion">Conclusion & Learnings</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Console Project Card 2 ("Project Two") Detail Page -->
+        <div class="page" id="project-2">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">Project Two</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>Project Two</h1>
+                    <p>This is the detailed page for Project Two. It follows the same structure as other projects, providing a comprehensive overview.</p>
+                    <h2 id="p2-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                    <h2 id="p2-features">2. Core Features</h2>
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam.</p>
+                    <h2 id="p2-conclusion">3. Conclusion & Learnings</h2>
+                    <p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#p2-introduction">Introduction</a></li>
+                        <li><a href="#p2-features">Core Features</a></li>
+                        <li><a href="#p2-conclusion">Conclusion & Learnings</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Console Project Card 3 ("Project Three") Detail Page -->
+        <div class="page" id="project-3">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">Project Three</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>Project Three</h1>
+                    <p>This is the detailed page for Project Three, showcasing its objectives, implementation, and outcomes.</p>
+                    <h2 id="p3-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                    <h2 id="p3-tech-stack">2. Technology Stack</h2>
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam.</p>
+                    <h2 id="p3-challenges">3. Challenges and Solutions</h2>
+                    <p>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                    <h2 id="p3-conclusion">4. Conclusion & Learnings</h2>
+                    <p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#p3-introduction">Introduction</a></li>
+                        <li><a href="#p3-tech-stack">Technology Stack</a></li>
+                        <li><a href="#p3-challenges">Challenges and Solutions</a></li>
+                        <li><a href="#p3-conclusion">Conclusion & Learnings</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+         <!-- Console Project Card 4 ("Project Four") Detail Page -->
+        <div class="page" id="project-4">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">Project Four</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>Project Four</h1>
+                    <p>This is the detailed page for Project Four.</p>
+                    <h2 id="p4-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#p4-introduction">Introduction</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Console Project Card 5 ("Project Five") Detail Page -->
+        <div class="page" id="project-5">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">Project Five</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>Project Five</h1>
+                    <p>This is the detailed page for Project Five.</p>
+                    <h2 id="p5-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#p5-introduction">Introduction</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Utility Project Card 1 ("Data Structures Library") Detail Page -->
+        <div class="page" id="util-1">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">Data Structures Library</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>Data Structures Library</h1>
+                    <p>This is the detailed page for the Data Structures Library. It's a collection of custom data structures like dynamic arrays and linked lists.</p>
+                    <h2 id="u1-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                    <h2 id="u1-features">2. Core Features</h2>
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam.</p>
+                    <h2 id="u1-conclusion">3. Conclusion & Learnings</h2>
+                    <p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#u1-introduction">Introduction</a></li>
+                        <li><a href="#u1-features">Core Features</a></li>
+                        <li><a href="#u1-conclusion">Conclusion & Learnings</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Utility Project Card 2 ("String Helper Class") Detail Page -->
+        <div class="page" id="util-2">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">String Helper Class</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>String Helper Class</h1>
+                    <p>This is the detailed page for the String Helper Class, a header-only library for advanced string manipulation and parsing.</p>
+                    <h2 id="u2-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                    <h2 id="u2-features">2. Core Features</h2>
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam.</p>
+                    <h2 id="u2-conclusion">3. Conclusion & Learnings</h2>
+                    <p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#u2-introduction">Introduction</a></li>
+                        <li><a href="#u2-features">Core Features</a></li>
+                        <li><a href="#u2-conclusion">Conclusion & Learnings</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Utility Project Card 3 ("Console UI Toolkit") Detail Page -->
+        <div class="page" id="util-3">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">Console UI Toolkit</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>Console UI Toolkit</h1>
+                    <p>This is the detailed page for the Console UI Toolkit, a simple toolkit for building more complex user interfaces in the console.</p>
+                    <h2 id="u3-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                    <h2 id="u3-features">2. Core Features</h2>
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam.</p>
+                    <h2 id="u3-conclusion">3. Conclusion & Learnings</h2>
+                    <p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#u3-introduction">Introduction</a></li>
+                        <li><a href="#u3-features">Core Features</a></li>
+                        <li><a href="#u3-conclusion">Conclusion & Learnings</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+       
+        <!-- Utility Project Card 4 ("Math Vector Library") Detail Page -->
+        <div class="page" id="util-4">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">Math Vector Library</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>Math Vector Library</h1>
+                    <p>This is the detailed page for the Math Vector Library.</p>
+                    <h2 id="u4-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#u4-introduction">Introduction</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Utility Project Card 5 ("File I/O Wrapper") Detail Page -->
+        <div class="page" id="util-5">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">File I/O Wrapper</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>File I/O Wrapper</h1>
+                    <p>This is the detailed page for the File I/O Wrapper.</p>
+                    <h2 id="u5-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#u5-introduction">Introduction</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!--
+            TEMPLATE FOR NEW PROJECT DETAIL PAGE:
+            1. Copy this block and uncomment it.
+            2. Change the main div's id to match the data-page from the project card (e.g., id="project-11").
+            3. Update the breadcrumb text to match the project's title.
+            4. Update the h1, p, and h2 content.
+            5. Make sure each h2 id is unique (e.g., id="p11-introduction").
+            6. Update the links in the Table of Contents to match the new h2 ids.
+        -->
+        <!--
+        <div class="page" id="project-new">
+            <nav class="breadcrumb">
+                <a href="#projects" class="breadcrumb-link">C++ Console Projects</a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-current">New Project Title</span>
+            </nav>
+            <div class="project-detail-layout">
+                <main class="project-content">
+                    <h1>New Project Title</h1>
+                    <p>This is the detailed page for the new project.</p>
+                    <h2 id="p-new-introduction">1. Introduction</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                </main>
+                <aside class="project-toc">
+                    <h3>Table of contents</h3>
+                    <ul>
+                        <li><a href="#p-new-introduction">Introduction</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        -->
+
+    <!-- Link to the main JavaScript file -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+/* --- CSS Variables --- */
+/* Defines the color scheme for the dark theme */
+:root {
+            --bg-primary: #1b1b1e;
+            --bg-secondary: #1e1e1e;
+            --bg-card: #252525;
+            --text-primary: #cbcbcb;
+            --text-secondary: #cbcbcb;
+            --accent: #cbcbcb;
+            --accent-hover: #cbcbcb;
+            --accent-text: #cbcbcb;
+            --border: rgba(255, 255, 255, 0.05);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="light"] { /* Overrides variables for the light theme */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --bg-card: #e9eff5;
+            --text-primary: #575859;
+            --text-secondary: #575859;
+            --accent: #e1e4e8;
+            --accent-hover: #d1d5da;
+            --accent-text: #575859;
+            --border: rgba(0, 0, 0, 0.1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Global Styles --- */
+        /* Basic reset for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Default styles for the body */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* --- Sidebar Styles --- */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        /* Profile section within the sidebar */
+        .profile {
+            text-align: center;
+            padding: 0 2rem 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        /* Wrapper for the profile image to create the gradient border */
+        .profile-img-wrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin: 0 auto 1rem;
+            padding: 3px; /* This creates the border thickness */
+        }
+
+        /* The actual profile image */
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover; /* Ensures the image covers the circle without distortion */
+            display: block; /* Removes any extra space below the image */
+        }
+
+        /* Name and subtitle in the profile section */
+        .profile h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .profile p {            
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Navigation menu styles */
+        .nav-menu {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Individual navigation links */
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;            
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        /* Make nav link text bold */
+        .nav-link span {
+            font-weight: 600;
+        }
+
+        /* Set icon size within the nav link to match the theme toggle button */
+        .nav-link i {
+            font-size: 1rem;
+            width: 1.2em; /* Ensures consistent spacing for different icons */
+        }
+
+        /* Hover effect for navigation links */
+        .nav-link:hover {
+            background: var(--bg-card);
+            color: var(--accent-text);
+        }
+
+        /* Style for the currently active navigation link */
+        .nav-link.active {
+            background: var(--bg-card);
+            color: var(--accent-text);
+        }
+
+        /* --- Theme Toggle Button --- */
+        .theme-toggle {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        /* Hover effect for the theme toggle button */
+        .theme-toggle:hover {
+            background: var(--accent-hover);
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        /* Specific override for theme toggle button in light mode */
+        [data-theme="light"] .theme-toggle {
+            background: #575859;
+            color: #ffffff;
+        }
+
+        /* --- Main Content Area --- */
+        /* The main container that holds the page content */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+            background: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Base style for a page section (hidden by default) */
+        .page {
+            display: none;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Style for the currently visible page */
+        .page.active {
+            display: block;
+        }
+
+        /* --- Home Page Specific Styles --- */
+        /* The main hero/welcome section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+       /* Main title and paragraph in the hero section */
+       .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Hero Action Buttons --- */
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;            
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        /* Primary Button Style */
+        .action-btn.primary {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        /* Secondary (Outline) Button Style */
+        .action-btn.secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            opacity: 1;
+        }
+
+        /* --- Skills Section --- */
+        .skills-section {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);;
+            margin-top: -1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: var(--bg-card);
+        }
+
+        .skill-item i {
+            font-size: 3rem;
+            color: var(--text-primary);
+        }
+
+        .skill-item span {
+            font-weight: 600;
+        }
+
+        /* --- Projects Section --- */
+        .projects-section {
+            padding: 2rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            position: relative; /* Needed for absolute positioning of the number */
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: var(--bg-card);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .project-card-number {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            opacity: 0.5;
+            flex-shrink: 0; /* Prevents the number from shrinking if tags wrap */
+        }
+
+        .section-divider {
+            height: 1px;
+            background-color: var(--border);
+            margin: 3rem 0;
+        }
+
+        /* --- Paradigm-specific Tag Styles --- */
+        /* Orange border for OOP tags */
+        .tag.tag-oop {
+            border: 1px solid #e67e22; /* A nice shade of orange */
+        }
+
+        /* Purple border for FP tags */
+        .tag.tag-fp {
+            border: 1px solid #9b59b6; /* A nice shade of purple */
+        }
+
+        /* --- Project Detail Page & Breadcrumbs --- */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-link:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-current {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .project-detail-layout {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .project-content {
+            flex: 1; /* Takes up the remaining space */
+            min-width: 0; /* Prevents flexbox overflow issues */
+        }
+
+        .project-content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-toc {
+            width: 240px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 2rem; /* Stick 2rem from the top */
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .project-toc h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-toc ul {
+            list-style: none;
+        }
+
+        .project-toc li a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-toc li a:hover {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        /* Style for the active link in the TOC, matching the sidebar */
+        .project-toc li a.active {
+            background: var(--bg-card);
+            color: var(--accent-text);
+        }
+
+        /* --- Mobile Responsive Styles --- */
+        /* The hamburger menu button for mobile */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background: var(--accent);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Styles for screens 768px wide or smaller */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                width: 100%;
+                max-width: 280px;
+            }
+
+            /* Class added by JS to show the sidebar */
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .page {
+                padding: 1rem;
+                padding-top: 5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* On smaller screens, stack the TOC on top of the content */
+        @media (max-width: 1024px) {
+            .project-detail-layout {
+                flex-direction: column;
+            }
+            .project-toc {
+                position: static; /* Un-stick the TOC */
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Styles for screens 480px wide or smaller */
+        @media (max-width: 480px) {
+            .page {
+                padding: 0.5rem;
+                padding-top: 4rem;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }

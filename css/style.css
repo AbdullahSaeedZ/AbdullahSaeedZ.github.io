@@ -241,8 +241,10 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            font-family: inherit; /* Ensures buttons and links use the same font */
             font-size: 0.9rem;
             font-weight: 600;            
+            position: relative; /* Needed for tooltip positioning */
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
@@ -269,6 +271,28 @@
             background: var(--text-primary);
             color: var(--bg-primary);
             opacity: 1;
+        }
+
+        /* Tooltip for copy feedback */
+        .action-btn .tooltip {
+            position: absolute;
+            bottom: 125%; /* Position above the button */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 10;
+        }
+        .action-btn .tooltip.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* --- Skills Section --- */

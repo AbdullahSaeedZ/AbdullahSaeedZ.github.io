@@ -114,6 +114,31 @@
                 }
             });
 
+            // --- Copy Email Functionality ---
+            const copyEmailBtn = document.getElementById('copy-email-btn');
+            if (copyEmailBtn) {
+                copyEmailBtn.addEventListener('click', function() {
+                    const email = this.dataset.email;
+                    navigator.clipboard.writeText(email).then(() => {
+                        // Create and show tooltip on success
+                        let tooltip = this.querySelector('.tooltip');
+                        if (!tooltip) {
+                            tooltip = document.createElement('span');
+                            tooltip.className = 'tooltip';
+                            tooltip.textContent = 'Copied!';
+                            this.appendChild(tooltip);
+                        }
+                        
+                        tooltip.classList.add('visible');
+
+                        // Hide the tooltip after 2 seconds
+                        setTimeout(() => {
+                            tooltip.classList.remove('visible');
+                        }, 2000);
+                    });
+                });
+            }
+
             // --- Handle URL Hash Changes and Initial Load ---
 
             // Function to show page based on the current URL hash

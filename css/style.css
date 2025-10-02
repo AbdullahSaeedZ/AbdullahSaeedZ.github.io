@@ -18,7 +18,7 @@
 
         [data-theme="light"] { /* Overrides variables for the light theme */
             --bg-primary: #ffffff;
-            --bg-secondary: #f7f6f67e; /* A slightly more noticeable grey */
+            --bg-secondary: #fafafa; /* A slightly more noticeable grey */
             --bg-card: #ffffff;
             --text-primary: #575859;
             --text-secondary: #575859;

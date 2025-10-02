@@ -1,25 +1,45 @@
 /* --- CSS Variables --- */
 /* Defines the color scheme for the dark theme */
 :root {
-            --bg-primary: #1A1A1A; /* Deep Dark Gray */
-            --bg-secondary: #252525; /* Surface/Card Background */
-            --bg-card: #303030; /* Hover/Active Surface */
-            --text-primary: #E0E0E0; /* High-emphasis text */
-            --text-secondary: #B0B0B0; /* Body text */
-            --accent-text: #E0E0E0; /* Text on colored backgrounds */
-            --border: rgba(255, 255, 255, 0.1); /* Slightly more visible border */
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Adjusted shadow for dark bg */
+            --bg-primary: #161616; /* Deep Dark Gray */
+            --bg-secondary: #1c1c1c; /* Surface/Card Background */
+            --bg-card: #1e1e1e; /* Hover/Active Surface */
+            --text-primary: #dbdbdb; /* High-emphasis text */
+            --text-secondary: #dbdbdb; /* Body text */
+            --accent-text: #dbdbdb; /* Text on colored backgrounds */ 
+            --border: rgba(255, 255, 255, 0.05); /* Thinner/more subtle border */
+            --nav-btn-hover-bg: #2c2c2c; /* Custom grey for nav button hover */
+            --shadow: 0 6px 24px rgba(0, 0, 0, 0.35); /* Increased shadow for dark bg */
+            --active-bg: #2c2c2c; /* Background for active nav items */
+            --active-text: #dbdbdb; /* Text for active nav items */
+            --button-bg: var(--active-bg); /* Floating button background */
+            --button-text: var(--text-primary); /* Floating button text */
         }
 
         [data-theme="light"] { /* Overrides variables for the light theme */
             --bg-primary: #ffffff;
-            --bg-secondary: #fafcff;
-            --bg-card: #e9eff5;
+            --bg-secondary: #f7f6f67e; /* A slightly more noticeable grey */
+            --bg-card: #ffffff;
             --text-primary: #575859;
             --text-secondary: #575859;
             --accent-text: #575859;
-            --border: rgba(0, 0, 0, 0.1);
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --border: rgba(0, 0, 0, 0.05); /* Thinner/more subtle border */
+            --nav-btn-hover-bg: #e4e6eb; /* A darker grey for hover */
+            --shadow: 0 6px 24px rgba(0, 0, 0, 0.08); /* Increased shadow for light bg */
+            --active-bg: var(--text-primary); /* Active nav background */
+            --active-text: #ffffff; /* Active nav text */
+            --button-bg: var(--text-primary); /* Floating button background */
+            --button-text: #ffffff; /* Floating button text */
+        }
+
+        /* --- Light Mode Specific Button Styles --- */
+        [data-theme="light"] .project-nav-btn {
+            background-color: var(--bg-secondary);
+            border-color: transparent;
+        }
+
+        [data-theme="light"] .project-nav-btn:hover {
+            background-color: var(--nav-btn-hover-bg);
         }
 
         /* --- Global Styles --- */
@@ -54,39 +74,47 @@
         }
         /* Profile section within the sidebar */
         .profile {
-            text-align: center;
-            padding: 0 2rem 2rem;
-            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem; /* Add space between avatar and text */
+            padding: 2rem 1.5rem; /* Reduce horizontal padding */
             margin-bottom: 2rem;
+        }
+
+        .profile-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center the name and description */
         }
 
         /* Wrapper for the profile image to create the gradient border */
         .profile-img-wrapper {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--text-secondary);
-            margin: 0 auto 1rem;
-            padding: 1px; /* This creates the border thickness */
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            /* The border was created by padding on this wrapper. It has been removed. */
+            flex-shrink: 0; /* Prevents the image from shrinking */
         }
 
         /* The actual profile image */
         .profile-img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
+            border-radius: 8px; /* Match the wrapper's radius */
             object-fit: cover; /* Ensures the image covers the circle without distortion */
             display: block; /* Removes any extra space below the image */
         }
 
         /* Name and subtitle in the profile section */
         .profile h1 {
-            font-size: 1.5rem;
+            font-size: 1.1rem; /* Slightly smaller font size */
             margin-bottom: 0.5rem;
             color: var(--text-primary);
+            white-space: nowrap; /* Prevent the name from wrapping to a new line */
         }
 
         .profile p {            
+            font-size: 0.9rem; /* Adjust subtitle size */
             color: var(--text-secondary);
             font-style: italic;
         }
@@ -126,17 +154,16 @@
 
         /* Hover effect for navigation links */
         .nav-link:hover {
-            background: var(--bg-card);
-            color: var(--accent-text);
+            background: var(--nav-btn-hover-bg);
+            color: var(--text-primary);
         }
 
         /* Style for the currently active navigation link */
         .nav-link.active {
-            background: var(--text-primary);
-            color: var(--bg-secondary);
+            background: var(--active-bg);
+            color: var(--active-text);
         }
 
-        /* --- Sidebar Footer --- */
         .sidebar-footer {
             position: absolute;
             bottom: 6rem; /* Position it above the theme toggle button */
@@ -149,36 +176,16 @@
             opacity: 0.6;
         }
 
-        /* --- Theme Toggle Button --- */
-        .theme-toggle {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--text-primary);
-            color: var(--bg-secondary);
+        /* --- Floating Buttons (Theme Toggle, Scroll to Top) --- */
+        .floating-btn {
+            background: var(--button-bg);
+            color: var(--button-text);
             border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem;
             transition: all 0.3s ease;
         }
-        /* Hover effect for the theme toggle button */
-        .theme-toggle:hover {
-            background: var(--text-primary);
-            transform: translateX(-50%) scale(1.1);
-        }
 
-        /* Specific override for theme toggle button in light mode */
-        [data-theme="light"] .theme-toggle {
-            background: #575859;
-            color: #ffffff;
-        }
-
-        /* --- Main Content Area --- */
-        /* The main container that holds the page content */
         .main-content {
             margin-left: 280px;
             min-height: 100vh;
@@ -332,8 +339,8 @@
 
         .skill-item:hover {
             transform: translateY(-5px);
+            background: var(--nav-btn-hover-bg);
             box-shadow: var(--shadow);
-            background: var(--bg-card);
         }
 
         .skill-item i {
@@ -445,11 +452,11 @@
 
         /* Light Mode Specific Tag Styles */
         [data-theme="light"] .tag {
-            background-color: var(--bg-card); /* Use the card's hover color as the default */
+            background-color: var(--bg-card); /* Use a slightly darker grey to stand out */
         }
 
         [data-theme="light"] .tag.tag-oop {
-            color: #e67e22; /* A nice shade of orange */
+            color: #d35400; /* A slightly darker, more readable orange */
         }
         [data-theme="light"] .tag.tag-fp {
             color: #9b59b6; /* A nice shade of purple */
@@ -535,29 +542,70 @@
         }
 
         .project-toc li a:hover {
-            background: var(--bg-card);
+            background: var(--nav-btn-hover-bg);
             color: var(--text-primary);
         }
 
         /* Style for the active link in the TOC, matching the sidebar */
         .project-toc li a.active {
-            background: var(--text-primary);
-            color: var(--bg-secondary);
+            background: var(--active-bg);
+            color: var(--active-text);
         }
 
-        /* --- Scroll to Top Button --- */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-nav-btn:hover {
+            background: var(--nav-btn-hover-bg);
+            color: var(--text-primary);
+            border-color: transparent; /* Make border disappear on hover */
+        }
+
+        .project-nav-btn.next {
+            margin-left: auto; /* Pushes the 'next' button to the right if 'prev' is absent */
+        }
+
+        /* --- Theme Toggle & Scroll to Top Specifics --- */
+        .theme-toggle {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+
+        .theme-toggle:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
         .scroll-to-top {
             display: block;
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             z-index: 999; /* Below the sidebar overlay */
-            background: var(--text-primary);
-            color: var(--bg-secondary);
-            border: none;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
             cursor: pointer;
             font-size: 1.2rem;
             transition: all 0.3s ease;
@@ -573,7 +621,6 @@
         }
 
         .scroll-to-top:hover {
-            background: var(--text-primary);
             transform: scale(1.1);
         }
 
@@ -581,13 +628,7 @@
         /* The hamburger menu button for mobile */
         .mobile-menu-btn {
             display: none;
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 1001;
-            background: var(--text-primary);
-            color: var(--bg-secondary);
-            border: none;
+            position: fixed; top: 1rem; left: 1rem; z-index: 1001;
             width: 50px;
             height: 50px;
             border-radius: 8px;
@@ -595,12 +636,6 @@
             cursor: pointer;
         }
         
-        /* Specific override for light mode to match theme toggle */
-        [data-theme="light"] .scroll-to-top {
-            background: #575859;
-            color: #ffffff;
-        }
-
         /* Styles for screens 768px wide or smaller */
         @media (max-width: 768px) {
             .mobile-menu-btn {

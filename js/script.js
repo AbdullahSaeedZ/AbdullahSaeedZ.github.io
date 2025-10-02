@@ -1,30 +1,29 @@
         // Wait for the entire HTML document to be loaded and parsed
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Cache DOM Elements ---
+            const body = document.body;
             const sidebar = document.getElementById('sidebar');
-
-            // --- Theme Toggle Functionality ---
             const themeToggleBtn = document.getElementById('theme-toggle-btn');
-            themeToggleBtn.addEventListener('click', () => { // When the theme button is clicked
-                const body = document.body;
-                const themeIcon = document.getElementById('theme-icon');
-                const currentTheme = body.getAttribute('data-theme');
+            const themeIcon = document.getElementById('theme-icon');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const copyEmailBtn = document.getElementById('copy-email-btn');
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            const allPages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-                if (currentTheme === 'dark') {
-                    body.setAttribute('data-theme', 'light');
-                    themeIcon.className = 'fas fa-sun';
-                } else {
-                    body.setAttribute('data-theme', 'dark');
-                    themeIcon.className = 'fas fa-moon';
-                }
+            // --- Theme Toggle ---
+            themeToggleBtn.addEventListener('click', () => { // When the theme button is clicked
+                const isDark = body.dataset.theme === 'dark';
+                body.dataset.theme = isDark ? 'light' : 'dark';
+                themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
             });
 
-            // --- Sidebar Toggle for Mobile Devices ---
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            // --- Mobile Sidebar Toggle ---
             mobileMenuBtn.addEventListener('click', () => { // When the mobile menu button is clicked
                 sidebar.classList.toggle('open');
             });
 
-            // Helper function to explicitly close the sidebar
+            // Helper to close the sidebar, used on navigation
             const closeSidebar = () => {
                 sidebar.classList.remove('open');
             };
@@ -45,7 +44,7 @@
                 }
 
                 // Hide all pages
-                document.querySelectorAll('.page').forEach(page => {
+                allPages.forEach(page => {
                     page.classList.remove('active');
                 });
 
@@ -61,7 +60,7 @@
                 }
 
                 // Update the active link in the sidebar
-                document.querySelectorAll('.nav-link').forEach(link => {
+                navLinks.forEach(link => {
                     link.classList.remove('active');
                     const linkHref = link.getAttribute('href').substring(1);
 
@@ -115,7 +114,6 @@
             });
 
             // --- Copy Email Functionality ---
-            const copyEmailBtn = document.getElementById('copy-email-btn');
             if (copyEmailBtn) {
                 copyEmailBtn.addEventListener('click', function() {
                     const email = this.dataset.email;
@@ -140,7 +138,6 @@
             }
 
             // --- Scroll to Top Button with Inactivity Timeout ---
-            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
             let inactivityTimer; // To hold the timer
 
             // This function shows the button (if scrolled down) and resets the inactivity timer
@@ -175,10 +172,7 @@
                 });
             });
 
-
             // --- Handle URL Hash Changes and Initial Load ---
-
-            // Function to show page based on the current URL hash
             const handleHashChange = () => {
                 const pageId = window.location.hash.substring(1);
                 showPage(pageId);

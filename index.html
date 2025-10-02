@@ -28,8 +28,10 @@
             <div class="profile-img-wrapper">
                 <img class="profile-img" src="assets/images/profile.png" alt="Profile Picture">
             </div>
-            <h1>Abdullah Alzahrani</h1>
-            <p>Junior Developer</p>
+            <div class="profile-text">
+                <h1>Abdullah Alzahrani</h1>
+                <p>Junior Developer</p>
+            </div>
         </div>
 
         <!-- Navigation menu -->
@@ -54,7 +56,7 @@
         </div>
 
         <!-- Theme toggle button (light/dark mode) -->
-        <button class="theme-toggle" id="theme-toggle-btn">
+        <button class="theme-toggle floating-btn" id="theme-toggle-btn">
             <i class="fas fa-sun" id="theme-icon"></i>
         </button>
     </div>
@@ -67,11 +69,11 @@
                 <h1>Welcome to My Portfolio</h1>
                 <p>Hello! I'm Abdullah Alzahrani, a passionate developer based in Dammam, Saudi Arabia. I specialize in creating efficient and innovative solutions, with a focus on console applications and system programming. Currently pursuing my Computer Science degree while actively developing my programming skills.</p>
                 <div class="hero-actions">
-                    <a href="mailto:Asz1095136568@gmail.com" class="action-btn primary">
+                    <a href="mailto:" class="action-btn primary">
                         <i class="fas fa-envelope"></i>
                         <span>Email Me</span>
                     </a>
-                    <button id="copy-email-btn" class="action-btn secondary" data-email="Asz1095136568@gmail.com">
+                    <button id="copy-email-btn" class="action-btn secondary" data-email="I will add it later :)">
                         <i class="fas fa-copy"></i>
                         <span>Copy Email</span>
                     </button>
@@ -334,6 +336,11 @@
                     </ul>
                 </aside>
             </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <!-- No previous project -->
+                <a href="#project-2" class="project-nav-btn next">Next Project <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
 
         <!-- Console Project Card 2 ("Project Two") Detail Page -->
@@ -362,6 +369,11 @@
                         <li><a href="#p2-conclusion">Conclusion & Learnings</a></li>
                     </ul>
                 </aside>
+            </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <a href="#project-1" class="project-nav-btn prev"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <a href="#project-3" class="project-nav-btn next">Next Project <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
@@ -395,6 +407,11 @@
                     </ul>
                 </aside>
             </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <a href="#project-2" class="project-nav-btn prev"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <a href="#project-4" class="project-nav-btn next">Next Project <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
 
          <!-- Console Project Card 4 ("Project Four") Detail Page -->
@@ -418,6 +435,11 @@
                     </ul>
                 </aside>
             </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <a href="#project-3" class="project-nav-btn prev"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <a href="#project-5" class="project-nav-btn next">Next Project <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
 
         <!-- Console Project Card 5 ("Project Five") Detail Page -->
@@ -440,6 +462,11 @@
                         <li><a href="#p5-introduction">Introduction</a></li>
                     </ul>
                 </aside>
+            </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <a href="#project-4" class="project-nav-btn prev"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <!-- No next project -->
             </div>
         </div>
 
@@ -470,6 +497,11 @@
                     </ul>
                 </aside>
             </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <!-- No previous project -->
+                <a href="#util-2" class="project-nav-btn next">Next Project <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
 
         <!-- Utility Project Card 2 ("String Helper Class") Detail Page -->
@@ -498,6 +530,11 @@
                         <li><a href="#u2-conclusion">Conclusion & Learnings</a></li>
                     </ul>
                 </aside>
+            </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <a href="#util-1" class="project-nav-btn prev"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <a href="#util-3" class="project-nav-btn next">Next Project <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
@@ -528,6 +565,11 @@
                     </ul>
                 </aside>
             </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <a href="#util-2" class="project-nav-btn prev"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <a href="#util-4" class="project-nav-btn next">Next Project <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
 
        
@@ -552,6 +594,11 @@
                     </ul>
                 </aside>
             </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <a href="#util-3" class="project-nav-btn prev"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <a href="#util-5" class="project-nav-btn next">Next Project <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
 
         <!-- Utility Project Card 5 ("File I/O Wrapper") Detail Page -->
@@ -574,6 +621,11 @@
                         <li><a href="#u5-introduction">Introduction</a></li>
                     </ul>
                 </aside>
+            </div>
+            <!-- Project Navigation -->
+            <div class="project-nav">
+                <a href="#util-4" class="project-nav-btn prev"><i class="fas fa-arrow-left"></i> Previous Project</a>
+                <!-- No next project -->
             </div>
         </div>
 
@@ -611,7 +663,7 @@
         -->
 
     <!-- Scroll to Top Button -->
-    <button id="scroll-to-top-btn" class="scroll-to-top" title="Go to top">
+    <button id="scroll-to-top-btn" class="scroll-to-top floating-btn" title="Go to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
